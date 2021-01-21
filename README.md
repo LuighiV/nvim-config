@@ -4,9 +4,13 @@ This configuration is based on the course offered in Udemy by Nicolas Schurmann:
 [Course](https://www.udemy.com/course/vim-aumenta-tu-velocidad-de-desarrollo/learn/lecture/15700992#overview)
 
 This installation is for ArchLinux:
+```bash
 yay -S neovim 
 yay -S neovim-plug
-
+yay -S vim-plug
+```
+The last line is to enable plug package installer for vim in addition to neovim,
+otherwise configuration file won't be valid for vim
 
 ## First steps
 
