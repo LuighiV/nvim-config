@@ -66,7 +66,7 @@ Use in normal mode via:
 
 ### Vim-Tmux-Navigator
 Tmux Navigator for VIM plugin to navigate into panels
-[NerdTree](https://github.com/christoomey/vim-tmux-navigator)
+[Vim-Tmux](https://github.com/christoomey/vim-tmux-navigator)
 
 Use the combination of Ctrl+h,j,k,l to move left, down, up and rigth,
 respectively.
