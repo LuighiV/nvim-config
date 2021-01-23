@@ -21,6 +21,7 @@ Plug 'morhetz/gruvbox'
 Plug 'easymotion/vim-easymotion'
 Plug 'scrooloose/nerdtree'
 Plug 'christoomey/vim-tmux-navigator'
+Plug 'tpope/vim-surround'
 call plug#end()
 
 colorscheme gruvbox
