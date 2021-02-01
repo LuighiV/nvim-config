@@ -16,6 +16,9 @@ set laststatus=2
 set wrap
 set textwidth=79
 
+" Default 4000ms for async is not good
+set updatetime=100
+
 call plug#begin('~/.vim/plugged')
 
 " Themes
@@ -23,7 +26,9 @@ Plug 'morhetz/gruvbox'
 
 " IDE
 Plug 'easymotion/vim-easymotion'
-Plug 'scrooloose/nerdtree'
+" Adding support for nerdtree plugin
+Plug 'scrooloose/nerdtree' |
+            \ Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'tpope/vim-surround'
 " Adding support for SASS
@@ -45,7 +50,14 @@ endif
 Plug 'honza/vim-snippets'
 " Adding support for linter ALE
 Plug 'dense-analysis/ale'
-
+" Adding git Support
+Plug 'tpope/vim-fugitive'
+" Add git difference markers
+if has('nvim') || has('patch-8.0.902')
+  Plug 'mhinz/vim-signify'
+else
+  Plug 'mhinz/vim-signify', { 'branch': 'legacy' }
+endif
 call plug#end()
 
 colorscheme gruvbox
