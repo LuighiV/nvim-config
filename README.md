@@ -12,6 +12,16 @@ yay -S vim-plug
 The last line is to enable plug package installer for vim in addition to neovim,
 otherwise configuration file won't be valid for vim
 
+## Adding dependencies
+
+For UtilSnip it is required to have a provider, so to install providers in NVIM you should run:
+```bash
+yay -S python2-neovim
+sudo pip install neovim
+yarn global add neovim
+```
+
+
 ## First steps
 
 You should make sure that there is a init.vim file located at ~/.config/nvim/init.vim
@@ -42,6 +52,7 @@ the following steps:
 2. Enter in normal mode the following command   :PlugInstall
 3. Wait util it is installed.
 4. Close the file and open again to see the changes
+
 
 ## Plugins installed
 
@@ -75,3 +86,46 @@ Tmux Navigator for VIM plugin to navigate into panels
 Use the combination of Ctrl+h,j,k,l to move left, down, up and rigth,
 respectively.
 
+### Vim-surrond
+Vim sorround for VIM plugin to add surround characters and tags in normal mode and visual mode: 
+[Vim-surround](https://github.com/tpope/vim-surround)
+
+Use the command `S` in visual mode to add a surround character or tag and command `cs`
+It is really useful when adding tags in HTML  and changing it.
+
+### SCSS-syntax
+Is a plugin to add support for SASS language.
+[SCSS-syntax](https://github.com/cakebaker/scss-syntax.vim)
+
+### VimTeX
+Add support for LaTeX files and environments.
+[Vim-tex](https://github.com/lervag/vimtex/)
+
+### Deoplete
+Add support for autocompleting capabilities
+[Deoplete](https://github.com/Shougo/deoplete.nvim)
+
+### UtilSnips
+This plugin enables the capabilities of using snippets:
+[UtilSnips](https://github.com/SirVer/ultisnips)
+
+Take into account that utilsnips only allows the capabilities to make some
+snippets which will be available when you configure it. However, it doesn't
+provide such snippets so you should add iy by your self. In this case, there
+are some libraries which provides those snippets.
+
+### Vim-Snippets
+This plugin adds snippets for the most common languages. It includes some
+snippets for TeX. 
+[Vim-Snippets](https://github.com/honza/vim-snippets)
+
+## Comments on Youcompleteme vs Deoplete
+I have proven both two Youcompleteme and Deoplete for autocompleting commands
+however I had some trouble with Youcompleteme as it uses also Tab for
+autocompleting wich is used also for UtilSnips. On the other hand Deoplete
+is well addapted to Neovim.
+
+## Notes:
+For TeX there are some interesting references in which I was based:
+[Writing LaTeX with VIM]( https://castel.dev/post/lecture-notes-1/ )
+[Snippets for LaTeX](https://github.com/gillescastel/latex-snippets)
