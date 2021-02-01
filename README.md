@@ -21,7 +21,6 @@ sudo pip install neovim
 yarn global add neovim
 ```
 
-
 ## First steps
 
 You should make sure that there is a init.vim file located at ~/.config/nvim/init.vim
@@ -46,14 +45,14 @@ ln -s  ./.vimrc ~/.vimrc
 
 You could use also the script file provided here: letsconfig.sh
 
-In addition to this you sould install the plugins provided, so make 
+In addition to this you should install the plugins provided, so make 
 the following steps:
 1. Open the configuration file with vim or nvim
 2. Enter in normal mode the following command   :PlugInstall
 3. Wait util it is installed.
 4. Close the file and open again to see the changes
 
-## Usign filetype plugin 
+## Using filetype plugin 
 Personal plugins are in the home directory of VIM which is in ~/.vim/after
 ```bash
 mkdir -p ~/.vim/after
@@ -120,13 +119,19 @@ This plugin enables the capabilities of using snippets:
 
 Take into account that utilsnips only allows the capabilities to make some
 snippets which will be available when you configure it. However, it doesn't
-provide such snippets so you should add iy by your self. In this case, there
+provide such snippets so you should add it by your self. In this case, there
 are some libraries which provides those snippets.
 
 ### Vim-Snippets
 This plugin adds snippets for the most common languages. It includes some
 snippets for TeX. 
 [Vim-Snippets](https://github.com/honza/vim-snippets)
+
+### ALE linter
+This plugin enables the capabilities to check syntax and integrates with
+deoplete for autocompleting. 
+[ALE linter](https://github.com/dense-analysis/ale)
+
 
 ## Comments on Youcompleteme vs Deoplete
 I have proven both two Youcompleteme and Deoplete for autocompleting commands
@@ -136,5 +141,5 @@ is well addapted to Neovim.
 
 ## Notes:
 For TeX there are some interesting references in which I was based:
-[Writing LaTeX with VIM]( https://castel.dev/post/lecture-notes-1/ )
+[Writing LaTeX with VIM](https://castel.dev/post/lecture-notes-1/)
 [Snippets for LaTeX](https://github.com/gillescastel/latex-snippets)

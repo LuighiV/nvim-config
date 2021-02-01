@@ -32,7 +32,8 @@ Plug 'cakebaker/scss-syntax.vim'
 Plug 'lervag/vimtex'
 Plug 'sirver/ultisnips'
 " From https://github.com/ycm-core/YouCompleteMe/issues/1751#issuecomment-273380629
-"Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
+" Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
+" Employing deoplete for auto completing
 if has('nvim')
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 else
@@ -42,6 +43,9 @@ else
 endif
 " Snippets are separated from the engine. Add this if you want them:
 Plug 'honza/vim-snippets'
+" Adding support for linter ALE
+Plug 'dense-analysis/ale'
+
 call plug#end()
 
 colorscheme gruvbox
@@ -88,6 +92,11 @@ let g:deoplete#enable_at_startup = 1
 call deoplete#custom#var('omni', 'input_patterns', {
           \ 'tex': g:vimtex#re#deoplete
           \})
+
+" Use ALE and also some plugin 'foobar' as completion sources for all code.
+call deoplete#custom#option('sources', {
+\ '_': ['ale', 'foobar'],
+\})
 
 " Adding custom deoplete mappings
 " https://github.com/Shougo/deoplete.nvim/issues/194#issuecomment-190233671
