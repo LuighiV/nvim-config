@@ -53,6 +53,15 @@ the following steps:
 3. Wait util it is installed.
 4. Close the file and open again to see the changes
 
+## Usign filetype plugin 
+Personal plugins are in the home directory of VIM which is in ~/.vim/after
+```bash
+mkdir -p ~/.vim/after
+mkdir -p ~/.vim/after/ftplugin
+```
+
+Then copy the corresponding files located in ftplugin allows using the
+spellcheck for certain files only.
 
 ## Plugins installed
 
