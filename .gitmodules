@@ -1,0 +1,3 @@
+[submodule "custom-snippets/latex-snippets"]
+	path = custom-snippets/latex-snippets
+	url = https://github.com/LuighiV/latex-snippets

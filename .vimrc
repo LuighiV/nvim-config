@@ -49,7 +49,7 @@ endif
 " Snippets are separated from the engine. Add this if you want them:
 Plug 'honza/vim-snippets'
 " Adding support for linter ALE
-Plug 'dense-analysis/ale'
+"Plug 'dense-analysis/ale'
 " Adding git Support
 Plug 'tpope/vim-fugitive'
 " Add git difference markers
@@ -105,10 +105,10 @@ call deoplete#custom#var('omni', 'input_patterns', {
           \ 'tex': g:vimtex#re#deoplete
           \})
 
-" Use ALE and also some plugin 'foobar' as completion sources for all code.
-call deoplete#custom#option('sources', {
-\ '_': ['ale', 'foobar'],
-\})
+" Use ALE as completion sources for all code.
+""call deoplete#custom#option('sources', {
+""\ '_': ['ale'],
+""\})
 
 " Adding custom deoplete mappings
 " https://github.com/Shougo/deoplete.nvim/issues/194#issuecomment-190233671
