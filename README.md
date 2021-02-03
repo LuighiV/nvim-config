@@ -105,9 +105,30 @@ It is really useful when adding tags in HTML  and changing it.
 Is a plugin to add support for SASS language.
 [SCSS-syntax](https://github.com/cakebaker/scss-syntax.vim)
 
-### VimTeX
+### Vim-TeX
 Add support for LaTeX files and environments.
 [Vim-tex](https://github.com/lervag/vimtex/)
+
+> Q: Does Vimtex work with neovim?
+> A: Yes, but backward sync requires the `neovim-remote` utility. It may be
+>    installed and used by vimtex as follows:
+> 
+>      1. Install the `pynvim` and `neovim-remote` modules for python3 (e.g.,
+>         using `pip3 install --user pynvim neovim-remote`; if `python3 -c
+>         "import pynvim"` returns without error and `nvr` starts neovim from
+>         the command line, everything should be good to go).
+> 
+>      2. Configure your viewer to use `nvr --remote +"%line" "%file"` for
+>         backward sync.
+> 
+>    See https://github.com/mhinz/neovim-remote for more information on `nvr`.
+
+According with this help it is required to install neovim-remote and add in
+zathura the following configuration at `~/.config/zathura/zathurarc`:
+```bash
+set synctex true
+set synctex-editor-command "nvr --remote-silent %f -c %l"
+```
 
 ### Deoplete
 Add support for autocompleting capabilities
@@ -143,3 +164,13 @@ is well addapted to Neovim.
 For TeX there are some interesting references in which I was based:
 [Writing LaTeX with VIM](https://castel.dev/post/lecture-notes-1/)
 [Snippets for LaTeX](https://github.com/gillescastel/latex-snippets)
+
+## Terminal keybindings 
+Terminals by default uses Emacs keybindings, however you could edit this
+configuration adding the corresponding configuration in the `~/.inputrc` file:
+
+```bash
+set editing-mode vi
+set keymap vi-command
+```
+

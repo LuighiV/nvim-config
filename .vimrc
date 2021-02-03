@@ -58,6 +58,10 @@ if has('nvim') || has('patch-8.0.902')
 else
   Plug 'mhinz/vim-signify', { 'branch': 'legacy' }
 endif
+
+"Adding autosave capabilities
+Plug '907th/vim-auto-save'
+
 call plug#end()
 
 colorscheme gruvbox
@@ -119,6 +123,9 @@ call deoplete#custom#var('omni', 'input_patterns', {
 "inoremap <expr><tab>  pumvisible() ? "\<C-n>" : "\<tab>"
 inoremap <expr><C-j> pumvisible() ? "\<C-n>" : "\<Down>"
 inoremap <expr><C-k> pumvisible() ? "\<C-p>" : "\<Up>"
+
+"Adding autosave capabilities
+let g:auto_save_events = ["InsertLeave", "TextChanged"]   
 
 nmap <Leader>s <Plug>(easymotion-s2)
 nmap <Leader>nt :NERDTreeFind<CR>
