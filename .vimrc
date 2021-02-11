@@ -1,7 +1,7 @@
 set number 
 set mouse=a
 set numberwidth=1
-set clipboard=unnamed
+set clipboard=unnamedplus
 syntax enable
 set showcmd
 set ruler
@@ -17,7 +17,7 @@ set wrap
 set textwidth=79
 
 " Default 4000ms for async is not good
-set updatetime=100
+"set updatetime=100
 
 call plug#begin('~/.vim/plugged')
 
@@ -49,7 +49,7 @@ endif
 " Snippets are separated from the engine. Add this if you want them:
 Plug 'honza/vim-snippets'
 " Adding support for linter ALE
-"Plug 'dense-analysis/ale'
+Plug 'dense-analysis/ale'
 " Adding git Support
 Plug 'tpope/vim-fugitive'
 " Add git difference markers
@@ -61,7 +61,8 @@ endif
 
 "Adding autosave capabilities
 Plug '907th/vim-auto-save'
-
+"Syntax highlighting
+Plug 'sheerun/vim-polyglot'
 call plug#end()
 
 colorscheme gruvbox
@@ -103,12 +104,6 @@ let g:deoplete#enable_at_startup = 1
 "endif
 "au VimEnter * let g:ycm_semantic_triggers.tex=g:vimtex#re#youcompleteme
 
-" Adding settings for deoplete and vimtex
-" https://jdhao.github.io/2019/03/26/nvim_latex_write_preview/
-call deoplete#custom#var('omni', 'input_patterns', {
-          \ 'tex': g:vimtex#re#deoplete
-          \})
-
 " Use ALE as completion sources for all code.
 ""call deoplete#custom#option('sources', {
 ""\ '_': ['ale'],
@@ -116,16 +111,26 @@ call deoplete#custom#var('omni', 'input_patterns', {
 
 " Adding custom deoplete mappings
 " https://github.com/Shougo/deoplete.nvim/issues/194#issuecomment-190233671
-"inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
-"function! s:my_cr_function()
-"    return (pumvisible() ? "\<C-y>" : "" ) . "\<CR>"
-"endfunction
-"inoremap <expr><tab>  pumvisible() ? "\<C-n>" : "\<tab>"
 inoremap <expr><C-j> pumvisible() ? "\<C-n>" : "\<Down>"
 inoremap <expr><C-k> pumvisible() ? "\<C-p>" : "\<Up>"
 
 "Adding autosave capabilities
 let g:auto_save_events = ["InsertLeave", "TextChanged"]   
+
+" Fix files automatically on save
+let g:ale_fix_on_save = 1
+
+nmap <F6> <Plug>(ale_fix)
+
+let g:ale_hover_cursor=1
+if has('nvim')
+  let g:ale_floating_preview=1
+  let g:ale_hover_to_floating_preview=1
+  let g:ale_detail_to_floating_preview=1
+else
+  let g:ale_set_balloons=1
+endif
+let g:ale_cursor_detail=1
 
 nmap <Leader>s <Plug>(easymotion-s2)
 nmap <Leader>nt :NERDTreeFind<CR>

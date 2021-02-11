@@ -158,7 +158,7 @@ deoplete for autocompleting.
 I have proven both two Youcompleteme and Deoplete for autocompleting commands
 however I had some trouble with Youcompleteme as it uses also Tab for
 autocompleting wich is used also for UtilSnips. On the other hand Deoplete
-is well addapted to Neovim.
+is well adapted to Neovim.
 
 ## Notes:
 For TeX there are some interesting references in which I was based:
