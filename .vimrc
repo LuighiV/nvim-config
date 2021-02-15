@@ -46,6 +46,8 @@ else
   Plug 'roxma/nvim-yarp'
   Plug 'roxma/vim-hug-neovim-rpc'
 endif
+" Autocompleting tool based on server
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " Snippets are separated from the engine. Add this if you want them:
 Plug 'honza/vim-snippets'
 " Adding support for linter ALE
@@ -63,6 +65,11 @@ endif
 Plug '907th/vim-auto-save'
 "Syntax highlighting
 Plug 'sheerun/vim-polyglot'
+"JSDOC support
+Plug 'heavenshell/vim-jsdoc', { 
+  \ 'for': ['javascript', 'javascript.jsx','typescript'], 
+  \ 'do': 'make install'
+\}
 call plug#end()
 
 colorscheme gruvbox
@@ -90,7 +97,7 @@ let g:python_host_prog = '/usr/bin/python2'
 let g:python3_host_prog = '/usr/bin/python3'
 
 " Enabling deoplete at the begining
-let g:deoplete#enable_at_startup = 1
+" let g:deoplete#enable_at_startup = 1
 
 " Adding settings for YouCompleteMe
 " From https://samsudar.com/code/vim_and_latex/
@@ -122,15 +129,15 @@ let g:ale_fix_on_save = 1
 
 nmap <F6> <Plug>(ale_fix)
 
-let g:ale_hover_cursor=1
-if has('nvim')
-  let g:ale_floating_preview=1
-  let g:ale_hover_to_floating_preview=1
-  let g:ale_detail_to_floating_preview=1
-else
-  let g:ale_set_balloons=1
-endif
-let g:ale_cursor_detail=1
+"let g:ale_hover_cursor=1
+"if has('nvim')
+"  let g:ale_floating_preview=1
+"  let g:ale_hover_to_floating_preview=1
+"  let g:ale_detail_to_floating_preview=1
+"else
+"  let g:ale_set_balloons=1
+"endif
+"let g:ale_cursor_detail=1
 
 nmap <Leader>s <Plug>(easymotion-s2)
 nmap <Leader>nt :NERDTreeFind<CR>
@@ -146,21 +153,21 @@ imap <C-t> <></><Esc>5hdiwp3lpT>i
 " from https://medium.com/vim-drops/custom-autoclose-mappings-1ff90f45c6f5
 "-- AUTOCLOSE --
 "autoclose and position cursor to write text inside
-inoremap ' ''<left>
+"inoremap ' ''<left>
 inoremap ` ``<left>
 inoremap " ""<left>
 inoremap ( ()<left>
 inoremap [ []<left>
 inoremap { {}<left>
 "autoclose with ; and position cursor to write text inside
-inoremap '; '';<left><left>
+"inoremap '; '';<left><left>
 inoremap `; ``;<left><left>
 inoremap "; "";<left><left>
 inoremap (; ();<left><left>
 inoremap [; [];<left><left>
 inoremap {; {};<left><left>
 "autoclose with , and position cursor to write text inside
-inoremap ', '',<left><left>
+"inoremap ', '',<left><left>
 inoremap `, ``,<left><left>
 inoremap ", "",<left><left>
 inoremap (, (),<left><left>
