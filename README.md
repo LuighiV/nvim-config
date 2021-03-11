@@ -154,8 +154,14 @@ deoplete for autocompleting.
 [ALE linter](https://github.com/dense-analysis/ale)
 
 
+## Markdown and Asciidoc
+This markup languages are used to write technical documentation. There is an
+interesting repository about this topic at [vim-for-technical-writes](https://github.com/settermjd/vim-for-technical-writers).
+
+In this case, we use `plasticboy/vim-markdown` and `dahu/vim-asciidoc`.
+
 ## Comments on Youcompleteme vs Deoplete
-I have proven both two Youcompleteme and Deoplete for autocompleting commands
+I have proved both two Youcompleteme and Deoplete for autocompleting commands
 however I had some trouble with Youcompleteme as it uses also Tab for
 autocompleting wich is used also for UtilSnips. On the other hand Deoplete
 is well adapted to Neovim.
