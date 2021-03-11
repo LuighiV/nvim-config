@@ -75,6 +75,7 @@ Plug 'heavenshell/vim-jsdoc', {
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
 "Asciidoc pluging
+Plug 'Raimondi/VimRegStyle'
 Plug 'dahu/vim-asciidoc'
 call plug#end()
 
