@@ -70,6 +70,12 @@ Plug 'heavenshell/vim-jsdoc', {
   \ 'for': ['javascript', 'javascript.jsx','typescript'], 
   \ 'do': 'make install'
 \}
+
+"Markdown plugins
+Plug 'godlygeek/tabular'
+Plug 'plasticboy/vim-markdown'
+"Asciidoc pluging
+Plug 'dahu/vim-asciidoc'
 call plug#end()
 
 colorscheme gruvbox
