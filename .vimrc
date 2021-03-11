@@ -76,7 +76,7 @@ Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
 "Asciidoc pluging
 Plug 'Raimondi/VimRegStyle'
-Plug 'dahu/vim-asciidoc'
+Plug 'LuighiV/vim-asciidoc'
 call plug#end()
 
 colorscheme gruvbox
