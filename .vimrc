@@ -77,6 +77,9 @@ Plug 'plasticboy/vim-markdown'
 "Asciidoc pluging
 Plug 'Raimondi/VimRegStyle'
 Plug 'LuighiV/vim-asciidoc'
+
+"Add plugin for go development
+Plug 'fatih/vim-go'
 call plug#end()
 
 colorscheme gruvbox
