@@ -128,7 +128,11 @@ zathura the following configuration at `~/.config/zathura/zathurarc`:
 ```bash
 set synctex true
 set synctex-editor-command "nvr --remote-silent %f -c %l"
+set sanbox none
 ```
+
+Note on sandbox none, it solves when zathura doesn't open the web browser when
+clicking on it: https://git.pwmt.org/pwmt/zathura/-/issues/151
 
 ### Deoplete
 Add support for autocompleting capabilities

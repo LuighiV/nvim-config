@@ -11,6 +11,10 @@ set showmatch
 set sw=2
 set relativenumber
 set laststatus=2
+set cmdheight=2
+set tabstop=2 shiftwidth=2 softtabstop=2 expandtab
+set t_Co=256
+set hidden
 
 " Add a text limiter
 set wrap
@@ -23,6 +27,12 @@ call plug#begin('~/.vim/plugged')
 
 " Themes
 Plug 'morhetz/gruvbox'
+"Plug 'sonph/onehalf', { 'rtp': 'vim' }
+"Plug 'rakr/vim-one'
+"Plug 'kyoz/purify', { 'rtp': 'vim' }
+Plug 'NLKNguyen/papercolor-theme'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 
 " IDE
 Plug 'easymotion/vim-easymotion'
@@ -30,7 +40,10 @@ Plug 'easymotion/vim-easymotion'
 Plug 'scrooloose/nerdtree' |
             \ Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'christoomey/vim-tmux-navigator'
+" Adding support for surround
 Plug 'tpope/vim-surround'
+" Adding support for surround
+Plug 'tpope/vim-ragtag'
 " Adding support for SASS
 Plug 'cakebaker/scss-syntax.vim'
 " Adding support for tex
@@ -39,13 +52,13 @@ Plug 'sirver/ultisnips'
 " From https://github.com/ycm-core/YouCompleteMe/issues/1751#issuecomment-273380629
 " Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
 " Employing deoplete for auto completing
-if has('nvim')
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-else
-  Plug 'Shougo/deoplete.nvim'
-  Plug 'roxma/nvim-yarp'
-  Plug 'roxma/vim-hug-neovim-rpc'
-endif
+"if has('nvim')
+"  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+"else
+"  Plug 'Shougo/deoplete.nvim'
+"  Plug 'roxma/nvim-yarp'
+"  Plug 'roxma/vim-hug-neovim-rpc'
+"endif
 " Autocompleting tool based on server
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " Snippets are separated from the engine. Add this if you want them:
@@ -74,16 +87,49 @@ Plug 'heavenshell/vim-jsdoc', {
 "Markdown plugins
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
+"Markdown preview
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 "Asciidoc pluging
 Plug 'Raimondi/VimRegStyle'
 Plug 'LuighiV/vim-asciidoc'
 
+"Python devel
+"Plug 'bfredl/nvim-ipy'
+Plug 'jpalardy/vim-slime', { 'for': 'python', 'branch': 'main' }
+Plug 'hanschen/vim-ipython-cell', { 'for': 'python' }
+Plug 'kshenoy/vim-signature'
+Plug 'heavenshell/vim-pydocstring', { 'do': 'make install', 'for': 'python' }
+
 "Add plugin for go development
 Plug 'fatih/vim-go'
+
+"Add tools for structure navigation
+Plug 'preservim/tagbar'
+
+"Add fzf
+Plug 'junegunn/fzf'
+Plug 'junegunn/fzf.vim'
+
+"Tool for translation
+Plug 'voldikss/vim-translator'
+
+"Integration with nnn
+Plug 'mcchrish/nnn.vim'
 call plug#end()
 
+if exists('+termguicolors')
+  let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+  let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+  set termguicolors
+endif
 colorscheme gruvbox
 let g:gruvbox_contrast_dark = "hard"
+let g:gruvbox_guisp_fallback = 'bg'
+"colorscheme PaperColor
+"set background=dark
+let g:airline_theme='peaksea'
+let g:airline_powerline_fonts = 1
+
 let NERDTreeQuitOnOpen=1
 let NERDTreeShowHidden=1
 
@@ -105,6 +151,27 @@ let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
 " Adding settings for python3
 let g:python_host_prog = '/usr/bin/python2'
 let g:python3_host_prog = '/usr/bin/python3'
+
+"---------------------------------------------------------------------------
+" slime configuration 
+"---------------------------------------------------------------------------
+" always use tmux
+let g:slime_target = 'tmux'
+
+" fix paste issues in ipython
+let g:slime_python_ipython = 1
+
+" always send text to the top-right pane in the current tmux tab without asking
+let g:slime_default_config = {
+            \ 'socket_name': get(split($TMUX, ','), 0),
+            \ 'target_pane': '{top-right}' }
+let g:slime_dont_ask_default = 1
+
+" Redefine pydocstring map to avoid default C-l used for navigation
+nmap <leader>d <Plug>(pydocstring)
+
+" Configuration for Tagbar
+nmap <F8> :TagbarToggle<CR>
 
 " Enabling deoplete at the begining
 " let g:deoplete#enable_at_startup = 1
@@ -161,12 +228,19 @@ nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 
+nnoremap <silent> <Leader>h :call CocActionAsync('doHover')<cr>
+nmap <leader>rn <Plug>(coc-rename)
+
 " Other configs
 nmap <Leader>s <Plug>(easymotion-s2)
 nmap <Leader>nt :NERDTreeFind<CR>
 
 nmap <Leader>w :w<CR>
 nmap <Leader>q :q<CR>
+
+" Settings for translator
+let g:translator_target_lang = "en"
+let g:translator_default_engines = ["google"]
 
 " Adding a tool to write quickly html tags
 " From: https://coderwall.com/p/1omscg/vim-easy-insert-html-tags 
