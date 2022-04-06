@@ -67,6 +67,8 @@ Plug 'honza/vim-snippets'
 Plug 'dense-analysis/ale'
 " Adding git Support
 Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-rhubarb'
+Plug 'shumphrey/fugitive-gitlab.vim'
 " Add git difference markers
 if has('nvim') || has('patch-8.0.902')
   Plug 'mhinz/vim-signify'
@@ -115,6 +117,9 @@ Plug 'voldikss/vim-translator'
 
 "Integration with nnn
 Plug 'mcchrish/nnn.vim'
+
+"Add support to liquid
+Plug 'tpope/vim-liquid'
 call plug#end()
 
 if exists('+termguicolors')
